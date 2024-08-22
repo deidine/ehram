@@ -9,7 +9,7 @@ export default function Home() {
           <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
         </div>
         <h1 className="text-4xl text-wrap font-bold text-green-700 mb-8">
-        1أهلا بكم في موقع شباب أشرم
+        أهلا بكم في موقع شباب أشرم1 للبناء
       </h1>
       <div className="space-x-4">
         <Link href="/register" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">

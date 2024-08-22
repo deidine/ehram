@@ -12,7 +12,7 @@ export default function Page() {
           الموقع قيد البناء
         </h1>
         <p className="text-lg text-green-700">
-          نشكر صبركم ونتمنى أن نلبي تطلعاتكم في موقع شباب أشرم.
+          نشكر صبركم ونتمنى أن نلبي تطلعاتكم في موقع شباب أشرم1 للبناء.
         </p>
       </div>
       <Link href="./home/profile" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
