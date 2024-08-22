@@ -160,10 +160,10 @@ const SigninForm = () => {
               className="mt-20 w-full uppercase rounded-full bg-buttonColor hover:bg-hoverButtonColor text-white font-semibold"
               loading={isLoading}
             >
-              إنشاء الانتساب
+              انتسب
             </Button>
             <Link href="/login" className="hover:underline">
-              تمتلك انتساب
+              منتسب
             </Link>
           </Form.Item>
         </Form>
