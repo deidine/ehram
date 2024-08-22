@@ -32,6 +32,9 @@ const SignupForm = () => {
         description: 'تم  الدخول بنجاح',
       });
       form.resetFields();
+      if (typeof window !== "undefined") {
+        window.location.href = "/home";
+      }
       // Redirect or do something after successful creation
       // router.push('/success-page'); // Replace with your success page or dashboard
     } catch (error) {
