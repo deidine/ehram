@@ -58,7 +58,7 @@ const SigninForm = () => {
         <div className="mb-8">
           <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
         </div>
-        <h1 className="text-5xl font-bold text-buttonColor">إنشاء حساب</h1>
+        <h1 className="text-5xl font-bold text-green-500">إنشاء حساب</h1>
 
         <Form
           form={form}

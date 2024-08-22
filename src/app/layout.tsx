@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "شباب أشرم",
-  description: "شباب أشرم",
+  title: "1شباب أشرم",
+  description: "1شباب أشرم",
   icons: {
     icon: "/logo.jpg",
   }
@@ -19,7 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}</body>
     </html>
   );
 }

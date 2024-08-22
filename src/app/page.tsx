@@ -3,9 +3,13 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-700 mb-8">
-        أهلا بكم في موقع شباب أشرم
+    <div className="flex flex-col items-center  gap-4 min-h-screen bg-gray-100">
+      
+      <div className="mb-8">
+          <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
+        </div>
+        <h1 className="text-4xl text-wrap font-bold text-green-700 mb-8">
+        1أهلا بكم في موقع شباب أشرم
       </h1>
       <div className="space-x-4">
         <Link href="/register" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">

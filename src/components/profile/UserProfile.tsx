@@ -30,7 +30,7 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-blue-50">
       <div
         id="user-profile"
         className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full"
@@ -38,28 +38,28 @@ export default function UserProfile() {
         <h1 className="text-3xl font-bold text-center mb-6">الملف الشخصي</h1>
         <div className="space-y-4">
           <div>
-            <span className="font-semibold">الاسم:</span><br />
-            <span className="ml-2">{userData.nom}</span>
+            <span className="font-semibold text-green-700">الاسم:</span><br />
+            <span className="ml-2 text-green-700">{userData.nom}</span>
           </div>
           <div>
-            <span className="font-semibold">اللقب:</span><br />
-            <span className="ml-2">{userData.prenom}</span>
+            <span className="font-semibold text-green-700">اللقب:</span><br />
+            <span className="ml-2 text-green-700">{userData.prenom}</span>
           </div>
           <div>
-            <span className="font-semibold">رقم الهوية:</span><br />
-            <span className="ml-2">{userData.nni}</span>
+            <span className="font-semibold text-green-700">رقم الهوية:</span><br />
+            <span className="ml-2 text-green-700">{userData.nni}</span>
           </div>
           <div>
-            <span className="font-semibold">رقم الهاتف:</span><br />
-            <span className="ml-2">{userData.phone}</span>
+            <span className="font-semibold text-green-700">رقم الهاتف:</span><br />
+            <span className="ml-2 text-green-700">{userData.phone}</span>
           </div>
           <div>
-            <span className="font-semibold">البريد الإلكتروني:</span><br />
-            <span className="ml-2">{userData.email}</span>
+            <span className="font-semibold text-green-700">البريد الإلكتروني:</span><br />
+            <span className="ml-2 text-green-700">{userData.email}</span>
           </div>
           <div>
-            <span className="font-semibold">تاريخ التسجيل:</span><br />
-            <span className="ml-2">
+            <span className="font-semibold text-green-700">تاريخ التسجيل:</span><br />
+            <span className="ml-2 text-green-700">
               {new Date(userData.created_at).toLocaleDateString("ar-EG")}
             </span>
           </div>
@@ -68,7 +68,7 @@ export default function UserProfile() {
      <div>
      <button
         onClick={downloadPDF}
-        className="mt-8 bg-blue-500 text-white px-4 py-2 rounded-lg"
+        className="mt-8 bg-green-500 text-white px-4 py-2 rounded-lg"
       >
         تحميل كملف PDF
       </button>

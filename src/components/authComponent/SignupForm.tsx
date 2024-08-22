@@ -59,7 +59,7 @@ const SignupForm = () => {
         <div className="mb-8">
           <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
         </div>
-        <h1 className="text-5xl font-bold text-buttonColor text-center mb-8">
+        <h1 className="text-5xl font-bold text-green-500 text-center mb-8">
           تسجيل الدخول
         </h1>
 
