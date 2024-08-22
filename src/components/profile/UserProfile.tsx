@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Link from "next/link";
 
 export default function UserProfile() {
   const [userData, setUserData] = useState<any>(null);
@@ -31,10 +32,16 @@ export default function UserProfile() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-blue-50">
-      <div
+      {userData.nom === "MalelAdmin" && userData.phone === "48659742" &&
+      
+      <Link href="./admin/all" className="text-lg text-white bg-red-500 hover:bg-green-600 px-6 py-2 rounded-lg">
+   admin site
+      </Link>
+      }<div
         id="user-profile"
         className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full"
       >
+
         <h1 className="text-3xl font-bold text-center mb-6">الملف الشخصي</h1>
         <div className="space-y-4">
           <div>
