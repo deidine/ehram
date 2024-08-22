@@ -14,7 +14,7 @@ export default function Home() {
       <div className="space-x-4">
         <Link href="/register" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">
            
-            تسجيل حساب
+            تسجيل انتساب
        
         </Link>
         <Link href="/login" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">

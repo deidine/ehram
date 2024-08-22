@@ -114,7 +114,7 @@ const SignupForm = () => {
             </Button>
           </Form.Item>
           <Link href="/register" className="hover:underline">
-            لا تمتلك حساب
+            لا تمتلك انتساب
           </Link>
         </Form>
       </div>
