@@ -22,3 +22,19 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: error  });
     }
 }
+
+export async function GET(req: NextRequest) {
+    const supabase = createClient();
+
+    try {
+        const { data, error } = await supabase
+            .from('users')
+            .select('nom, prenom, nni, phone, email, password');
+
+        if (error) throw error;
+
+        return NextResponse.json({ data });
+    } catch (error) {
+        return NextResponse.json({ error: error });
+    }
+}
