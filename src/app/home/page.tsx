@@ -18,6 +18,9 @@ export default function Page() {
       <Link href="./home/profile" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
     الملف الشخصي
       </Link>
+      <Link href="./admin/all" className="text-lg text-white bg-red-500 hover:bg-green-600 px-6 py-2 rounded-lg">
+   admin site
+      </Link>
     </div>
   );
 }
