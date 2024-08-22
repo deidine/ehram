@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Form, Input, Button, Spin, notification } from "antd";
 import { createClientBrowser } from "@/utils/supabase/client"; 
 import { LoadingOutlined } from "@ant-design/icons";
- 
+
 const SigninForm = () => {
   const [form] = Form.useForm();
   const [isLoading, setIsLoading] = useState(false); 
+
   const onFinish = async (values: any) => {
+    setIsLoading(true);
     try {
       const response = await fetch('/api/users', {
         method: 'POST',
@@ -24,18 +26,30 @@ const SigninForm = () => {
       const result = await response.json();
       console.log('User created:', result);
 
+      notification.success({
+        message: 'تم إنشاء المستخدم بنجاح',
+        description: 'تم إنشاء حسابك بنجاح',
+      });
+
       // Redirect or do something after successful creation
       // router.push('/success-page'); // Replace with your success page or dashboard
     } catch (error) {
       console.error('Error creating user:', error);
+      notification.error({
+        message: 'خطأ',
+        description: 'حدث خطأ أثناء إنشاء المستخدم',
+      });
+    } finally {
+      setIsLoading(false);
     }
-   }
-   
-   if (isLoading) {
+  }
+
+  if (isLoading) {
     return (
       <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
     );
   }
+
   return (
     <div className="selection:bg-buttonColor selection:text-white">
       <div className="flex justify-center items-center">
@@ -43,52 +57,100 @@ const SigninForm = () => {
           <div className="mx-auto overflow-hidden">
             <div className="p-8">
               <h1 className="text-5xl font-bold text-buttonColor">
-                Welcome back!
+                إنشاء حساب
               </h1>
 
               <Form
                 form={form}
-                name="signin"
+                name="signup"
                 onFinish={onFinish}
                 layout="vertical"
                 className="mt-12"
               >
                 <Form.Item
-                  label="Email address"
+                  label="الاسم"
+                  name="nom"
+                  rules={[
+                    {
+                      required: true,
+                      message: "الرجاء إدخال الاسم!",
+                    },
+                  ]}
+                >
+                  <Input id="name" placeholder="الاسم" />
+                </Form.Item>
+
+                <Form.Item
+                  label="اللقب"
+                  name="prenom"
+                  rules={[
+                    {
+                      required: true,
+                      message: "الرجاء إدخال اللقب!",
+                    },
+                  ]}
+                >
+                  <Input id="surname" placeholder="اللقب" />
+                </Form.Item>
+
+                <Form.Item
+                  label="رقم الهوية"
+                  name="nni"
+                  rules={[
+                    {
+                      required: true,
+                      message: "الرجاء إدخال رقم الهوية!",
+                    },
+                  ]}
+                >
+                  <Input id="nni" placeholder="رقم الهوية" />
+                </Form.Item>
+
+                <Form.Item
+                  label="رقم الهاتف"
+                  name="phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "الرجاء إدخال رقم الهاتف!",
+                    },
+                    {
+                      pattern: new RegExp(/^(\+?\d{1,4})?\s?\d{7,14}$/),
+                      message: "الرجاء إدخال رقم هاتف صحيح!",
+                    },
+                  ]}
+                >
+                  <Input id="phone" placeholder="رقم الهاتف" />
+                </Form.Item>
+
+                <Form.Item
+                  label="البريد الإلكتروني"
                   name="email"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your email address!",
+                      message: "الرجاء إدخال البريد الإلكتروني!",
                     },
                     {
                       type: "email",
-                      message: "The input is not valid email!",
+                      message: "الرجاء إدخال بريد إلكتروني صالح!",
                     },
                   ]}
                 >
-                  <Input
-                    id="signin-email"
-                    placeholder="john@doe.com"
-                    className="peer"
-                  />
+                  <Input id="email" placeholder="البريد الإلكتروني" />
                 </Form.Item>
 
                 <Form.Item
-                  label="Password"
+                  label="كلمة المرور"
                   name="password"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your password!",
+                      message: "الرجاء إدخال كلمة المرور!",
                     },
                   ]}
                 >
-                  <Input.Password
-                    id="signin-password"
-                    placeholder="Password"
-                    className="peer"
-                  />
+                  <Input.Password id="password" placeholder="كلمة المرور" />
                 </Form.Item>
 
                 <Form.Item>
@@ -98,16 +160,10 @@ const SigninForm = () => {
                     className="mt-20 w-full uppercase rounded-full bg-buttonColor hover:bg-hoverButtonColor text-white font-semibold"
                     loading={isLoading}
                   >
-                    Sign in
+                    إنشاء الحساب
                   </Button>
                 </Form.Item>
               </Form>
-              <a
-                href="#"
-                className="mt-4 block text-sm text-center font-medium text-buttonColor hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              >
-                Forgot your password?
-              </a>
             </div>
           </div>
         </div>

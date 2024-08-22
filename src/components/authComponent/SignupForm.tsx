@@ -1,21 +1,20 @@
- "use client";
+"use client";
 import React from "react";
 import { Form, Input, Button } from "antd";  
 import { createClientBrowser } from "@/utils/supabase/client";
+
 const SignupForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = async(values: any) => {  
-    const email = values.email ;
-    const password = values.password  ;
+    const email = values.email;
+    const password = values.password;
     const supabase = createClientBrowser();
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: {
-        
-      }
+      options: {}
     });
 
     if (error) {
@@ -29,7 +28,7 @@ const SignupForm = () => {
     <div className="selection:bg-buttonColor selection:text-hoverButtonColor min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
         <h1 className="text-5xl font-bold text-buttonColor text-center mb-8">
-          Create Account
+          إنشاء حساب
         </h1>
         
         <Form
@@ -40,18 +39,18 @@ const SignupForm = () => {
           className="space-y-6"
         >
           <Form.Item
-            label="Name"
+            label="الاسم"
             name="name"
             rules={[
               {
                 required: true,
-                message: "Please input your name!",
+                message: "يرجى إدخال الاسم!",
               },
             ]}
           >
             <Input
               id="name"
-              placeholder="Name"
+              placeholder="الاسم"
               className="peer rounded-lg border-gray-300 focus:border-buttonColor focus:ring focus:ring-buttonColor focus:ring-opacity-50"
             />
           </Form.Item>
@@ -100,7 +99,7 @@ const SignupForm = () => {
               htmlType="submit"
               className="w-full mt-4 py-3 text-lg uppercase rounded-full bg-buttonColor hover:bg-hoverButtonColor text-white font-semibold"
             >
-              Sign Up
+              إنشاء حساب
             </Button>
           </Form.Item>
         </Form>
@@ -108,4 +107,5 @@ const SignupForm = () => {
     </div>
   );
 };
+
 export default SignupForm;
