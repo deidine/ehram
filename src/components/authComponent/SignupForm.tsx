@@ -1,14 +1,11 @@
 "use client";
 import React, { useState } from "react";
-
 import { Form, Input, Button, Spin, notification } from "antd";
-import { createClientBrowser } from "@/utils/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
 
 const SignupForm = () => {
   const [form] = Form.useForm();
-
   const [isLoading, setIsLoading] = useState(false);
 
   const onFinish = async (values: any) => {
@@ -22,31 +19,33 @@ const SignupForm = () => {
         body: JSON.stringify(values),
       });
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
       const result = await response.json();
-      console.log("User created:", result);
 
-      notification.success({
-        message: "تم  الدخول بنجاح",
-        description: "تم  الدخول بنجاح",
-      });
-      form.resetFields();
+      if (result.data.length === 0) {
+        // If no matching user found
+        notification.error({
+          message: "خطأ",
+          description: "حدث خطأ أثناء الدخول تاكد من البيانات",
+        });
+      } else {
+        // If user is found
+        notification.success({
+          message: "تم الدخول بنجاح",
+          description: "تم الدخول بنجاح",
+        });
+        form.resetFields();
 
-      localStorage.setItem("user", JSON.stringify(result.data));
+        localStorage.setItem("user", JSON.stringify(result.data[0]));
 
-      if (typeof window !== "undefined") {
-        window.location.href = "/home";
+        if (typeof window !== "undefined") {
+          window.location.href = "/home";
+        }
       }
-      // Redirect or do something after successful creation
-      // router.push('/success-page'); // Replace with your success page or dashboard
     } catch (error) {
       console.error("Error creating user:", error);
       notification.error({
         message: "خطأ",
-        description: "حدث خطأ أثناء الدخول تاكد من البيانات",
+        description: "حدث خطأ أثناء الدخول",
       });
     } finally {
       setIsLoading(false);
