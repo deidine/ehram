@@ -47,7 +47,7 @@ export default function Page() {
 
   return (
   <>
-    {userData.nom === "MalelAdmin" && userData.phone === "48659742" &&
+    {userData.nom === "MalekAdmin" && userData.phone === "48659742" &&
       
     <section className="container mx-auto p-6 font-mono">
       <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
