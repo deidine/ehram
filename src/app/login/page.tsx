@@ -1,10 +1,12 @@
-import React from 'react'
-import AuthPage from '@/components/authComponent/AuthPage'
+import React from "react";
+import SignupForm from "@/components/authComponent/SignupForm";
 
 export default function page() {
-    return (
-        <div className="flex pb-4  flex-row items-center justify-center h-[91vh] w-full relative">
-          <AuthPage />
-        </div>
-      );
+  return (
+    <div className="  pb-4   h-[100%]  w-full   ">
+      <div className=" h-[99vh] w-full bg-white     rounded-lg shadow-lg">
+        <SignupForm />
+      </div>
+    </div>
+  );
 }
