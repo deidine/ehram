@@ -82,7 +82,7 @@ const SignupForm = () => {
           >
             <Input
               id="phone"
-              placeholder="49619609"
+              placeholder="رقم الهاتف"
               className="peer rounded-lg border-gray-300 focus:border-buttonColor focus:ring focus:ring-buttonColor focus:ring-opacity-50"
             />
           </Form.Item>
@@ -99,7 +99,7 @@ const SignupForm = () => {
           >
             <Input.Password
               id="password"
-              placeholder="Password"
+              placeholder="كلمة المرور"
               className="peer rounded-lg border-gray-300 focus:border-buttonColor focus:ring focus:ring-buttonColor focus:ring-opacity-50"
             />
           </Form.Item>
