@@ -30,7 +30,7 @@ const SigninForm = () => {
         message: 'تم إنشاء المستخدم بنجاح',
         description: 'تم إنشاء حسابك بنجاح',
       });
-
+      form.resetFields();
       // Redirect or do something after successful creation
       // router.push('/success-page'); // Replace with your success page or dashboard
     } catch (error) {

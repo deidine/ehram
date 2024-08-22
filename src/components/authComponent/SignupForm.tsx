@@ -1,34 +1,56 @@
 "use client";
-import React from "react";
-import { Form, Input, Button } from "antd";  
+import React, { useState } from "react";
+
+import { Form, Input, Button, Spin, notification } from "antd";
 import { createClientBrowser } from "@/utils/supabase/client";
 
 const SignupForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = async(values: any) => {  
-    const email = values.email;
-    const password = values.password;
-    const supabase = createClientBrowser();
+  const [isLoading, setIsLoading] = useState(false); 
 
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {}
-    });
+  const onFinish = async (values: any) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-    if (error) {
-      return alert("/signup?message=Could not authenticate user");
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log('User created:', result);
+
+      notification.success({
+        message: 'تم  الدخول بنجاح',
+        description: 'تم  الدخول بنجاح',
+      });
+      form.resetFields();
+      // Redirect or do something after successful creation
+      // router.push('/success-page'); // Replace with your success page or dashboard
+    } catch (error) {
+      console.error('Error creating user:', error);
+      notification.error({
+        message: 'خطأ',
+        description: 'حدث خطأ أثناء الدخول تاكد من البيانات',
+      });
+    } finally {
+      setIsLoading(false);
     }
+  }
 
-    return alert("/login?message=Check email to continue sign in process");
-  };
 
   return (
     <div className="selection:bg-buttonColor selection:text-hoverButtonColor min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
         <h1 className="text-5xl font-bold text-buttonColor text-center mb-8">
-          إنشاء حساب
+          تسجيل الدخول
         </h1>
         
         <Form
@@ -38,51 +60,33 @@ const SignupForm = () => {
           layout="vertical"
           className="space-y-6"
         >
+    
           <Form.Item
-            label="الاسم"
-            name="name"
+            label="الهاتف"
+            name="phone"
             rules={[
               {
                 required: true,
-                message: "يرجى إدخال الاسم!",
+                message: "الرجاء ادخال الهاتف!",
               },
+            
             ]}
           >
             <Input
-              id="name"
-              placeholder="الاسم"
+              id="phone"
+              placeholder="49619609"
               className="peer rounded-lg border-gray-300 focus:border-buttonColor focus:ring focus:ring-buttonColor focus:ring-opacity-50"
             />
           </Form.Item>
 
           <Form.Item
-            label="Email Address"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your email address!",
-              },
-              {
-                type: "email",
-                message: "The input is not valid email!",
-              },
-            ]}
-          >
-            <Input
-              id="email"
-              placeholder="john@doe.com"
-              className="peer rounded-lg border-gray-300 focus:border-buttonColor focus:ring focus:ring-buttonColor focus:ring-opacity-50"
-            />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
+            label="كلمة المرور"
             name="password"
             rules={[
               {
                 required: true,
-                message: "Please input your password!",
+                message: "الرجاء ادخال  كلمة المرور!",
+                
               },
             ]}
           >
@@ -99,7 +103,7 @@ const SignupForm = () => {
               htmlType="submit"
               className="w-full mt-4 py-3 text-lg uppercase rounded-full bg-buttonColor hover:bg-hoverButtonColor text-white font-semibold"
             >
-              إنشاء حساب
+            تأكيد
             </Button>
           </Form.Item>
         </Form>
