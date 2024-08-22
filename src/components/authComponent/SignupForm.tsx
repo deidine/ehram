@@ -32,6 +32,9 @@ const SignupForm = () => {
         description: 'تم  الدخول بنجاح',
       });
       form.resetFields();
+
+      localStorage.setItem('user', JSON.stringify(result.data));
+
       if (typeof window !== "undefined") {
         window.location.href = "/home";
       }
