@@ -4,6 +4,16 @@ import React, { useEffect, useState } from "react";
 export default function Page() {
   const [users, setUsers] = useState<User []>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [userData, setUserData] = useState<any>(null);
+
+  useEffect(() => {
+    // Fetch or retrieve user data from localStorage
+    const storedData = localStorage.getItem("user");
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setUserData(parsedData[0]); // Access the first item in the array
+    }
+  }, []);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -36,6 +46,9 @@ export default function Page() {
   }
 
   return (
+  <>
+    {userData.nom === "MalelAdmin" && userData.phone === "48659742" &&
+      
     <section className="container mx-auto p-6 font-mono">
       <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div className="w-full overflow-x-auto">
@@ -68,7 +81,8 @@ export default function Page() {
           </table>
         </div>
       </div>
-    </section>
+    </section>}
+    <div> admin seulemnt</ div></>  
   );
 }
 
