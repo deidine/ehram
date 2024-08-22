@@ -17,7 +17,7 @@ export default function Home() {
             الإنتـســــاب
        
         </Link>
-        <Link href="/login" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
+        <Link href="/login" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">
       
             تسجيل دخول
        
