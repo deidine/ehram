@@ -1,13 +1,12 @@
 "use client";
-
-import { Icons } from "@/src/components/icons";
-import { Modal } from "@/src/components/modal";
-import { Button } from "@/src/components/ui/button";
+ 
 import React from "react";
-import { CarCard } from "./components/car-card";
-import { Car } from "@/src/db/definitions";
+import {  UserCard } from "./components/car-card"; 
+import { Modal } from "@/components/modal";
+import { Button } from "@/components/button";
+import { Icons } from "@/components/icons";
 
-export default function ViewCar({ index, car }: { index: number; car: Car }) {
+export default function ViewCar({ index, user }: { index: number; user: User }) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleModalToggle = ()=>{
     setIsModalOpen((prevState) => !prevState);
@@ -38,7 +37,7 @@ export default function ViewCar({ index, car }: { index: number; car: Car }) {
         }
       >
         <>
-          <CarCard index={index} car={car} />
+          <UserCard index={index} user={user} />
         </>
       </Modal>
     </div>
