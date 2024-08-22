@@ -30,7 +30,7 @@ const SigninForm = () => {
 
       notification.success({
         message: "تم إنشاء المستخدم بنجاح",
-        description: "تم إنشاء انتسابك بنجاح",
+        description: "تم انتسابك بنجاح",
       });
       form.resetFields();
       // Redirect or do something after successful creation
@@ -58,7 +58,7 @@ const SigninForm = () => {
         <div className="mb-8">
           <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
         </div>
-        <h1 className="text-5xl font-bold text-green-500">إنشاء انتساب</h1>
+        <h1 className="text-5xl font-bold text-green-500">الإنـتـســـاب</h1>
 
         <Form
           form={form}
