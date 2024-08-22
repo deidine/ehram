@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-export default function page() {
+export default function Page() {
   return (
-    <div className="flex pb-4  flex-row items-center justify-center w-1/2 mx-auto relative">
-    <span className='text-3xl text-blue-700 font-bold'>   الموقع طور البناء نشكر صبركم و نتمنى ان نلبي تطلعاتكم في موقع شباب اشرم
-   </span>  </div>
-  )
+    <div className="flex items-center justify-center w-full h-screen bg-gray-100">
+      <div className="text-center px-8 py-4 bg-white shadow-md rounded-md">
+        <h1 className="text-4xl text-blue-700 font-bold mb-4">
+          الموقع قيد البناء
+        </h1>
+        <p className="text-lg text-gray-700">
+          نشكر صبركم ونتمنى أن نلبي تطلعاتكم في موقع شباب أشرم.
+        </p>
+      </div>
+    </div>
+  );
 }
