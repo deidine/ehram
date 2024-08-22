@@ -110,11 +110,11 @@ const SignupForm = () => {
               htmlType="submit"
               className="w-full mt-4 py-3 text-lg uppercase rounded-full bg-buttonColor hover:bg-hoverButtonColor text-white font-semibold"
             >
-              تأكيد
+              تأكيد
             </Button>
           </Form.Item>
           <Link href="/register" className="hover:underline">
-            لا تمتلك انتساب
+            لست منتسب
           </Link>
         </Form>
       </div>
