@@ -12,12 +12,12 @@ export default function Home() {
         أهــلا بـكـم فــي مـوقـــع نـادي شبـاب أشـرم1 لـلبنـاء
       </h1>
       <div className="space-x-4">
-        <Link href="/register" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
+        <Link href="/register" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">
            
             الإنتـســــاب
        
         </Link>
-        <Link href="/login" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
+        <Link href="/login" className="text-lg text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg">
       
             تسجيل دخول
        
