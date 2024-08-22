@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Image from "next/image";
-import Link from "next/link";
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center  gap-4 min-h-screen bg-gray-100">
@@ -12,7 +9,7 @@ export default function Home() {
           <Image src="/logo2.jpg" width={400} height={100} alt="Logo" />
         </div>
         <h1 className="text-4xl text-center text-wrap font-bold text-green-700 mb-8">
-        أهــلا بـكـم فــي مـوقـــع نـادي شبـاب أشـرم1 للبنـاء
+        أهــلا بـكـم فــي مـوقـــع نـادي شبـاب أشـرم1 لـلبنـاء
       </h1>
       <div className="space-x-4">
         <Link href="/register" className="text-lg text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-lg">
